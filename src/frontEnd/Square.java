@@ -14,6 +14,7 @@ import com.sun.javafx.sg.prism.NGNode;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
@@ -59,17 +60,17 @@ public class Square extends AnchorPane{
 			@Override
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
-//				toInit.setEffect(new Glow(0.8));
+				toInit.setEffect(new Glow(0.8));
 				
 				ImageView image = (ImageView)toInit.getChildren().get(0);
 			
 				toInit.fadeTransition = new SequentialTransition();
 				
-				FadeTransition fadeOut = getFadeTransition(image, image.getOpacity(), 0.0, 1000);
-				FadeTransition fadeIn = getFadeTransition(image, 0.0, 1.0, 1000);
+				FadeTransition fadeOut = getFadeTransition(image, image.getOpacity(), 0.0, 800);
+				FadeTransition fadeIn = getFadeTransition(image, 0.0, 1.0, 800);
 				
 				toInit.fadeTransition.getChildren().addAll(fadeOut, fadeIn);
-				toInit.setC
+				toInit.fadeTransition.setCycleCount(Timeline.INDEFINITE);
 				toInit.fadeTransition.play();
 			}
 			
@@ -90,7 +91,8 @@ public class Square extends AnchorPane{
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
 				toInit.setEffect(null);
-				
+				toInit.fadeTransition.stop();
+				((ImageView)toInit.getChildren().get(0)).setOpacity(1.0);
 			}
 		});
 		

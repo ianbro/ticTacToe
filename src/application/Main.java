@@ -22,8 +22,16 @@ public class Main extends Application {
 		mainScene = null;
 		try {
 			AnchorPane root = new AnchorPane();
-			root.setMinHeight(440);
-			root.setMinWidth(440);
+			
+			if(Main.getOS().equals("Mac OS X")){
+				System.out.println(true);
+				root.setMinSize(450, 450);
+			}
+			else {
+				root.setMinHeight(440);
+				root.setMinWidth(440);
+			}
+			
 			root.getChildren().add(game.getBoard());
 			((AnchorPane)root.getChildren().get(0)).setCenterShape(true);
 			
@@ -41,5 +49,9 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		game = new Game(new Player("Ian", "x"), new Player("Jake", "circle"), "basic");
 		launch(args);
+	}
+	
+	public static String getOS(){
+		return (System.getProperty("os.name"));
 	}
 }
