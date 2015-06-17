@@ -3,7 +3,11 @@ package frontEnd;
 import java.util.ArrayList;
 
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundSize;
 import backend.Player;
 
 public class Board extends AnchorPane{
@@ -51,5 +55,7 @@ public class Board extends AnchorPane{
 		}
 		
 		this.theme = theme;
+		
+		super.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/staticFiles/themes/" + theme + "/background.jpeg")), null, null, null, new BackgroundSize(100.0, 450.0, true, false, true, true))));
 	}
 }

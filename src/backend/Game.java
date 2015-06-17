@@ -1,35 +1,50 @@
 package backend;
 
+import application.Main;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import frontEnd.Board;
+import frontEnd.HomeScreen;
+import frontEnd.ResultScreen;
 import frontEnd.Square;
 
 public class Game {
 
 	private Board gameBoard;
+	private HomeScreen mainMenu;
+	public ResultScreen resultScreen;
+	
+	private String theme;
 	public Player[] player;
 	public int turn = 0;
 	
 	public Game(Player one, Player two, String theme){
 		gameBoard = new Board(theme);
+		mainMenu = new HomeScreen(theme);
 		
 		player = new Player[2];
 		player[0] = one;
 		player[1] = two;
+		
+		this.theme = theme;
 	}
 	
 	public Board getBoard(){
 		return this.gameBoard;
 	}
 	
+	public HomeScreen getMainMenu(){
+		return this.mainMenu;
+	}
+	
 	public void nextTurn(){
 		if(checkWin(this.player[(turn % 2)])){
-			System.out.println("Player " + ((turn % 2) + 1) + " wins!");
-			System.exit(0);
+			this.resultScreen = new ResultScreen(this.theme, (turn % 2)+1);
+			Main.mainScene.setRoot(this.resultScreen);
 		}
 		else if(this.checkTie()){
-			System.out.println("Tie!");
-			System.exit(0);
+			this.resultScreen = new ResultScreen(this.theme, 3);
+			Main.mainScene.setRoot(this.resultScreen);
 		}
 		else{
 			this.turn ++;

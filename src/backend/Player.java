@@ -11,4 +11,8 @@ public class Player {
 		this.team = team;
 		this.name = name;
 	}
+	
+	public String toString(){
+		return this.name;
+	}
 }

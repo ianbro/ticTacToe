@@ -1,5 +1,6 @@
 package application;
 	
+import frontEnd.HomeScreen;
 import frontEnd.Square;
 import backend.Game;
 import backend.Player;
@@ -10,12 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
 	
-	public Scene mainScene;
+	public static Scene mainScene;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -32,7 +34,8 @@ public class Main extends Application {
 				root.setMinWidth(440);
 			}
 			
-			root.getChildren().add(game.getBoard());
+//			root.getChildren().add(new HomeScreen("basic"));
+			root.getChildren().add(Main.game.getBoard());
 			((AnchorPane)root.getChildren().get(0)).setCenterShape(true);
 			
 			mainScene = new Scene(root,root.getMinWidth(),root.getMinHeight());
@@ -47,11 +50,16 @@ public class Main extends Application {
 	public static Game game;
 	
 	public static void main(String[] args) {
-		game = new Game(new Player("Ian", "x"), new Player("Jake", "circle"), "basic");
+		game = new Game(new Player("Player 1", "x"), new Player("Player 2", "circle"), "basic");
 		launch(args);
 	}
 	
 	public static String getOS(){
 		return (System.getProperty("os.name"));
+	}
+	
+	public static void newGame(){
+		game = new Game(new Player("Player 1", "x"), new Player("Player 2", "circle"), "basic");
+		mainScene.setRoot(game.getBoard());
 	}
 }

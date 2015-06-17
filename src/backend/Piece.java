@@ -12,7 +12,7 @@ public class Piece extends ImageView{
 	public String type;
 	
 	public Piece(String team){
-		image = new Image(getClass().getResourceAsStream("../staticFiles/themes/" + Main.game.getBoard().theme + "/" + team + ".png"));
+		image = new Image(getClass().getResourceAsStream("/staticFiles/themes/" + Main.game.getBoard().theme + "/" + team + ".png"));
 		super.setImage(image);
 		this.type = team;
 		super.setFitHeight(150);
