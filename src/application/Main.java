@@ -56,7 +56,8 @@ public class Main extends Application {
 	}
 	
 	public static void toThemeScreen(String theme){
-		mainScene.setRoot(new ThemeScreen(theme));
+		ThemeScreen ts = new ThemeScreen(theme);
+		mainScene.setRoot(ts);
 	}
 	
 	public static String getOS(){

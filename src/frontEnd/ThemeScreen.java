@@ -21,7 +21,7 @@ public class ThemeScreen extends AnchorPane {
 	public ThemeScreen(String theme){
 		this.theme = theme;
 		try {
-			this.value = FXMLLoader.load(this.getClass().getResource("/frontEnd/fxml/ThemeScreen.fxml"));
+			this.value = FXMLLoader.load(this.getClass().getResource("../frontEnd/fxml/ThemeScreen.fxml"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,12 +31,6 @@ public class ThemeScreen extends AnchorPane {
 		
 		this.getChildren().add(this.value);
 		
-		this.getStylesheets().add(getClass().getResource("/staticFiles/themes/" + theme + "/css/style.css").toString());
-		
-		basic = (ImageView)(Main.mainScene.lookup("#basicImage"));
-		basic.setImage(new Image(getClass().getResourceAsStream("/staticFiles/themes/basic/sample.png")));
-
-		gold = (ImageView)(Main.mainScene.lookup("#goldImage"));
-		gold.setImage(new Image(getClass().getResourceAsStream("/staticFiles/themes/gold/sample.png")));
+		this.getStylesheets().add(getClass().getResource("../staticFiles/themes/" + theme + "/css/style.css").toString());
 	}
 }

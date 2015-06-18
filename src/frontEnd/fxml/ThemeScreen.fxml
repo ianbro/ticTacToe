@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="450.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="450.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="frontEnd.controllers.ThemeScreenController">
    <children>
       <Accordion layoutX="-1.0" layoutY="98.0" prefHeight="350.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <panes>
@@ -16,7 +16,11 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="144.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="basicImage" fitHeight="160.0" fitWidth="160.0" layoutX="144.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../staticFiles/themes/basic/sample.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>
@@ -25,7 +29,11 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="160.0" fitWidth="160.0" layoutX="144.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="goldImage" fitHeight="160.0" fitWidth="160.0" layoutX="144.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../staticFiles/themes/gold/sample.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>
