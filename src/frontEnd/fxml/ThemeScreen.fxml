@@ -1,49 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="450.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="frontEnd.controllers.ThemeScreenController">
-   <children>
-      <Accordion layoutX="-1.0" layoutY="98.0" prefHeight="350.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <panes>
-          <TitledPane animated="false" text="Basic">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="basicImage" fitHeight="160.0" fitWidth="160.0" layoutX="144.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../staticFiles/themes/basic/sample.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" text="Gold">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="goldImage" fitHeight="160.0" fitWidth="160.0" layoutX="144.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../staticFiles/themes/gold/sample.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </TitledPane>
-        </panes>
-      </Accordion>
-      <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="22.0" prefHeight="58.0" prefWidth="409.0" text="SELECT A THEME" textAlignment="CENTER" textFill="WHITE" underline="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-         <font>
-            <Font name="MS PGothic" size="36.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane prefHeight="450.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="frontEnd.controllers.ThemeScreenController">
+  <children>
+    <Accordion prefHeight="350.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <panes>
+        <TitledPane animated="false" text="Basic">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <ImageView id="basicImage" fx:id="basic" fitHeight="160.0" fitWidth="160.0" layoutX="144.0" layoutY="71.0" onMouseClicked="#chooseBasic" onMouseEntered="#basicGlow" onMouseExited="#stopGlow" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../staticFiles/themes/basic/sample.png" />
+                  </image>
+                </ImageView>
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+        <TitledPane animated="false" text="Gold">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <ImageView id="goldImage" fx:id="gold" fitHeight="160.0" fitWidth="160.0" layoutX="144.0" layoutY="70.0" onMouseClicked="#chooseGold" onMouseEntered="#goldGlow" onMouseExited="#stopGlow" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../staticFiles/themes/gold/sample.png" />
+                  </image>
+                </ImageView>
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+      </panes>
+    </Accordion>
+    <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" layoutY="22.0" prefHeight="58.0" prefWidth="409.0" text="SELECT A THEME" textAlignment="CENTER" textFill="WHITE" underline="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <font>
+        <Font name="MS PGothic" size="36.0" />
+      </font>
+    </Label>
+  </children>
 </AnchorPane>
