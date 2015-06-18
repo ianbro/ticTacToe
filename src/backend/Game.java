@@ -12,7 +12,7 @@ public class Game {
 
 	private Board gameBoard;
 	private HomeScreen mainMenu;
-	public ResultScreen resultScreen;
+	private ResultScreen resultScreen;
 	
 	private String theme;
 	public Player[] player;
@@ -35,6 +35,14 @@ public class Game {
 	
 	public HomeScreen getMainMenu(){
 		return this.mainMenu;
+	}
+	
+	public void setResultScreen(ResultScreen rs){
+		this.resultScreen = rs;
+	}
+	
+	public ResultScreen getResultScreen(){
+		return this.resultScreen;
 	}
 	
 	public void nextTurn(){

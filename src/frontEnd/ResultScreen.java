@@ -23,12 +23,10 @@ import javafx.scene.text.Text;
 
 public class ResultScreen extends AnchorPane {
 
-	private String theme;
 	private Label result;
 	public Button newGame;
 	
 	public ResultScreen(String theme, int player){
-		this.theme = theme;
 		super.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/staticFiles/themes/" + theme + "/background.jpeg")), null, null, null, new BackgroundSize(100, 450, true, false, true, true))));
 		this.setMinSize(450, 450);
 		
@@ -38,21 +36,33 @@ public class ResultScreen extends AnchorPane {
 		this.getChildren().add(newGame);
 		this.getChildren().add(result);
 		
+		double left;
+		if(result.getText().equals("Cats Game!")){
+			left = 120;
+		}
+		else{
+			left = 110;
+		}
+		
 		AnchorPane.setLeftAnchor(newGame, 185.0);
 		AnchorPane.setTopAnchor(newGame, 220.0);
-		this.result.setStyle("position: center");
+		
+		AnchorPane.setLeftAnchor(result, left);
+		AnchorPane.setTopAnchor(result, 150.0);
+		
+		this.getStylesheets().add(getClass().getResource("/staticFiles/themes/" + theme + "/css/style.css").toString());
 	}
 	
 	public void setButtonProperties(){
 		this.newGame = new Button("New Game");
-		this.newGame.setAlignment(Pos.BOTTOM_CENTER);
+		this.newGame.setId("newGame");
 		
 		this.newGame.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
-				Main.newGame();
+				Main.newGame(Main.game.getBoard().theme);
 			}
 		});
 	}

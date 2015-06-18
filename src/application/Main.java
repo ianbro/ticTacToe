@@ -2,6 +2,7 @@ package application;
 	
 import frontEnd.HomeScreen;
 import frontEnd.Square;
+import frontEnd.ThemeScreen;
 import backend.Game;
 import backend.Player;
 import javafx.application.Application;
@@ -35,7 +36,7 @@ public class Main extends Application {
 			}
 			
 //			root.getChildren().add(new HomeScreen("basic"));
-			root.getChildren().add(Main.game.getBoard());
+			root.getChildren().add(Main.game.getMainMenu());
 			((AnchorPane)root.getChildren().get(0)).setCenterShape(true);
 			
 			mainScene = new Scene(root,root.getMinWidth(),root.getMinHeight());
@@ -54,12 +55,16 @@ public class Main extends Application {
 		launch(args);
 	}
 	
+	public static void toThemeScreen(String theme){
+		mainScene.setRoot(new ThemeScreen(theme));
+	}
+	
 	public static String getOS(){
 		return (System.getProperty("os.name"));
 	}
 	
-	public static void newGame(){
-		game = new Game(new Player("Player 1", "x"), new Player("Player 2", "circle"), "basic");
+	public static void newGame(String theme){
+		game = new Game(new Player("Player 1", "x"), new Player("Player 2", "circle"), theme);
 		mainScene.setRoot(game.getBoard());
 	}
 }

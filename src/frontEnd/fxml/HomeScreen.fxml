@@ -6,13 +6,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.controllers.HomeScreenController">
   <!-- TODO Add Nodes -->
   <children>
-    <Label layoutX="127.0" layoutY="29.0" prefHeight="58.0" prefWidth="196.0" text="Main Menu" textFill="BLACK" underline="false">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="29.0" prefHeight="58.0" prefWidth="196.0" text="Main Menu" textAlignment="CENTER" textFill="WHITE" underline="false">
       <font>
-        <Font name="PT Mono Bold" size="36.0" />
+        <Font name="MS PGothic" size="36.0" />
       </font>
     </Label>
+      <Button fx:id="btnPlay" defaultButton="true" layoutX="77.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnPlayPressed" prefHeight="65.0" prefWidth="298.0" text="PLAY">
+         <font>
+            <Font name="MS PGothic" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnThemes" layoutX="76.0" layoutY="204.0" mnemonicParsing="false" onAction="#btnThemesPressed" prefHeight="65.0" prefWidth="298.0" text="THEME" AnchorPane.bottomAnchor="181.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="204.0">
+         <font>
+            <Font name="MS PGothic" size="24.0" />
+         </font>
+      </Button>
   </children>
 </AnchorPane>
