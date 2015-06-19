@@ -90,8 +90,21 @@ public class CPU extends Player {
 		}
 		
 		
+		else if(a1.isOwnedBy(this) && b2.isOwnedBy(this) && !c3.isTaken()){
+			this.move(c3);
+		}
+		else if(b2.isOwnedBy(this) && c3.isOwnedBy(this) && !a1.isTaken()){
+			this.move(a1);
+		}
 		else if(a1.isOwnedBy(this) && c3.isOwnedBy(this) && !b2.isTaken()){
 			this.move(b2);
+		}
+		
+		else if(c1.isOwnedBy(this) && b2.isOwnedBy(this) && !a3.isTaken()){
+			this.move(a3);
+		}
+		else if(a3.isOwnedBy(this) && b2.isOwnedBy(this) && !c1.isTaken()){
+			this.move(c1);
 		}
 		else if(c1.isOwnedBy(this) && a3.isOwnedBy(this) && !b2.isTaken()){
 			this.move(b2);
@@ -160,8 +173,21 @@ public class CPU extends Player {
 		}
 		
 		
+		else if(a1.isOwnedBy(p) && b2.isOwnedBy(p) && !c3.isTaken()){
+			this.move(c3);
+		}
+		else if(b2.isOwnedBy(p) && c3.isOwnedBy(p) && !a1.isTaken()){
+			this.move(a1);
+		}
 		else if(a1.isOwnedBy(p) && c3.isOwnedBy(p) && !b2.isTaken()){
 			this.move(b2);
+		}
+		
+		else if(c1.isOwnedBy(p) && b2.isOwnedBy(p) && !a3.isTaken()){
+			this.move(a3);
+		}
+		else if(a3.isOwnedBy(p) && b2.isOwnedBy(p) && !c1.isTaken()){
+			this.move(c1);
 		}
 		else if(c1.isOwnedBy(p) && a3.isOwnedBy(p) && !b2.isTaken()){
 			this.move(b2);
