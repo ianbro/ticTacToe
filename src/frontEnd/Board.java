@@ -2,6 +2,8 @@ package frontEnd;
 
 import java.util.ArrayList;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;

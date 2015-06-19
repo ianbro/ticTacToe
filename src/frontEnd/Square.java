@@ -33,7 +33,7 @@ public class Square extends AnchorPane {
 	private Image square;
 	private Controller controller;
 	private boolean isTaken;
-	private Player owner;
+	public Player owner;
 
 	public SequentialTransition fadeTransition;
 

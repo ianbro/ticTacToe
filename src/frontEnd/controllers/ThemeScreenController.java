@@ -3,6 +3,8 @@ package frontEnd.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import frontEnd.HomeScreen;
+import frontEnd.ModeScreen;
 import application.Main;
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;
@@ -27,11 +29,11 @@ public class ThemeScreenController implements Initializable {
 	}
 
 	@FXML public void chooseGold(){
-		Main.newGame("gold");
+		Main.mainScene.setRoot(new HomeScreen("gold"));
 	}
 	
 	@FXML public void chooseBasic(){
-		Main.newGame("basic");
+		Main.mainScene.setRoot(new HomeScreen("basic"));
 	}
 	
 	

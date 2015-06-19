@@ -3,6 +3,7 @@ package frontEnd.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import frontEnd.ModeScreen;
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +23,7 @@ public class HomeScreenController implements Initializable {
 	}
 	
 	@FXML private void btnPlayPressed(){
-		Main.newGame(Main.game.getBoard().theme);
+		Main.mainScene.setRoot(new ModeScreen(Main.game.getBoard().theme));
 	}
 	
 	@FXML private void btnThemesPressed(){

@@ -1,10 +1,12 @@
 package application;
 	
 import frontEnd.HomeScreen;
+import frontEnd.ModeScreen;
 import frontEnd.Square;
 import frontEnd.ThemeScreen;
 import backend.Game;
 import backend.Player;
+import backend.ai.CPU;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -27,7 +29,6 @@ public class Main extends Application {
 			AnchorPane root = new AnchorPane();
 			
 			if(Main.getOS().equals("Mac OS X")){
-				System.out.println(true);
 				root.setMinSize(450, 450);
 			}
 			else {
@@ -35,8 +36,8 @@ public class Main extends Application {
 				root.setMinWidth(440);
 			}
 			
-//			root.getChildren().add(new HomeScreen("basic"));
-			root.getChildren().add(Main.game.getMainMenu());
+			root.getChildren().add(new HomeScreen("basic"));
+//			root.getChildren().add(Main.game.getMainMenu());
 			((AnchorPane)root.getChildren().get(0)).setCenterShape(true);
 			
 			mainScene = new Scene(root,root.getMinWidth(),root.getMinHeight());
@@ -51,7 +52,7 @@ public class Main extends Application {
 	public static Game game;
 	
 	public static void main(String[] args) {
-		game = new Game(new Player("Player 1", "x"), new Player("Player 2", "circle"), "basic");
+		game = new Game(new Player("Player 1", "x"), new Player("Player 2", "circle"), "basic", "single");
 		launch(args);
 	}
 	
@@ -64,8 +65,14 @@ public class Main extends Application {
 		return (System.getProperty("os.name"));
 	}
 	
-	public static void newGame(String theme){
-		game = new Game(new Player("Player 1", "x"), new Player("Player 2", "circle"), theme);
+	public static void newGame(String theme, String mode){
+		System.out.println(mode);
+		if(mode.equals("multi")){
+			game = new Game(new Player("Player 1", "x"), new Player("Player 2", "circle"), theme, mode);
+		}
+		else{
+			game = new Game(new Player("Player 1", "x"), new CPU("circle"), theme, mode);
+		}
 		mainScene.setRoot(game.getBoard());
 	}
 }

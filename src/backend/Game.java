@@ -1,12 +1,12 @@
 package backend;
 
-import application.Main;
-import javafx.scene.Node;
-import javafx.scene.layout.AnchorPane;
 import frontEnd.Board;
 import frontEnd.HomeScreen;
 import frontEnd.ResultScreen;
 import frontEnd.Square;
+import javafx.scene.Node;
+import application.Main;
+import backend.ai.CPU;
 
 public class Game {
 
@@ -17,8 +17,10 @@ public class Game {
 	private String theme;
 	public Player[] player;
 	public int turn = 0;
+	public String mode; //either "single" or "multi"
 	
-	public Game(Player one, Player two, String theme){
+	public Game(Player one, Player two, String theme, String mode){
+		this.mode = mode;
 		gameBoard = new Board(theme);
 		mainMenu = new HomeScreen(theme);
 		
@@ -56,6 +58,11 @@ public class Game {
 		}
 		else{
 			this.turn ++;
+			if(this.mode.equals("single") && this.turn%2 == 1){
+				System.out.println("moving");
+				CPU cpu = (CPU)player[1];
+				cpu.decideMove();
+			}
 		}
 	}
 	

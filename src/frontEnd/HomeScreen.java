@@ -2,6 +2,7 @@ package frontEnd;
 
 import java.io.IOException;
 
+import application.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -17,6 +18,11 @@ public class HomeScreen extends AnchorPane {
 	
 	public HomeScreen(String theme){
 		this.theme = theme;
+		try{
+			Main.game.getBoard().theme = theme;
+		} catch(Exception e){
+			
+		}
 		try {
 			this.value = FXMLLoader.load(this.getClass().getResource("/frontEnd/fxml/HomeScreen.fxml"));
 		} catch (IOException e) {

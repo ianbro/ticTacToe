@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="frontEnd.controllers.ModeScreenController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label fx:id="single" alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="121.0" onMouseClicked="#chooseSingle" prefHeight="58.0" prefWidth="346.0" text="Single Player" textAlignment="CENTER" textFill="WHITE" underline="false">
+      <font>
+        <Font name="MS PGothic" size="36.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label fx:id="multi" alignment="CENTER" contentDisplay="CENTER" font="$x1" layoutX="52.0" layoutY="225.0" onMouseClicked="#chooseMulti" prefHeight="58.0" prefWidth="346.0" text="Multi Player" textAlignment="CENTER" textFill="WHITE" underline="false" />
+  </children>
+</AnchorPane>
